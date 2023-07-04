@@ -45,7 +45,7 @@
           </ul>
 
           <ul class="user-nav">
-            <li class="user-nav__link" href="#" tabindex="0">
+            <li class="user-nav__link" tabindex="0">
 
               <svg class="user-nav__link-img" width="21" height="22" viewBox="0 0 21 22" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@
               </svg>
 
             </li>
-            <li class="user-nav__link" href="#" tabindex="0">
+            <li class="user-nav__link" tabindex="0">
               <svg class="user-nav__link-img" width="21" height="20" viewBox="0 0 21 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -96,7 +96,7 @@
               Самый быстрый сервис доставки еды в вашем городе. Не уложимся в срок - доставка за наш счёт
             </p>
             <div class="basic__items">
-              <button class="button basic__button">Заказать</button>
+              <button class="button basic__button" type="button">Заказать</button>
               <a class="basic__link link" href="#">Подробнее</a>
             </div>
 
@@ -176,9 +176,9 @@
               <article class="product-card">
                 <img class="popular-categories__img" src="images/categories/item-3.png" alt="Королевский чизбургер"
                   width="140" height="140">
-                <h4 class="popular-categories__subtitle">Королевский чизбургер</h3>
-                  <p class="popular-categories__price">260 грн.</p>
-                  <button class="button popular-categories__item-btn" type="button">В корзину</button>
+                <h4 class="popular-categories__subtitle">Королевский чизбургер</h4>
+                <p class="popular-categories__price">260 грн.</p>
+                <button class="button popular-categories__item-btn" type="button">В корзину</button>
               </article>
             </li>
             <li class="popular-categories__item mix category-b">
@@ -289,7 +289,7 @@
               </li>
             </ul>
 
-            <button class="button info__button">Подробнее</button>
+            <button class="button info__button" type="button">Подробнее</button>
           </div>
         </div>
       </div>
@@ -316,11 +316,13 @@
                   <div class="restaurants__view">
 
                     <div class="restaurants__info">
+
                       <svg class="icon-timer" width="22" height="22">
                         <use xlink:href="images/sprite.svg#icon-timer"></use>
 
                         <span>11:00 - 22:00</span>
                       </svg>
+
                     </div>
 
                     <a class="view-link restaurants__link" href="#">
@@ -509,7 +511,7 @@
           <div class="reviews-slider__item">
 
             <figure class="quote">
-              <img class="quote__portrait" src="images/reviewer.jpg" alt="">
+              <img class="quote__portrait" src="images/reviewer.jpg" alt="Портрет рецензента">
 
               <div class="quote__content">
 
@@ -532,7 +534,7 @@
           <div class="reviews-slider__item">
 
             <figure class="quote">
-              <img class="quote__portrait" src="images/reviewer.jpg" alt="">
+              <img class="quote__portrait" src="images/reviewer.jpg" alt="Портрет рецензента">
 
               <div class="quote__content">
 
@@ -555,7 +557,7 @@
           <div class="reviews-slider__item">
 
             <figure class="quote">
-              <img class="quote__portrait" src="images/reviewer.jpg" alt="">
+              <img class="quote__portrait" src="images/reviewer.jpg" alt="Портрет рецензента">
 
               <div class="quote__content">
 
@@ -578,7 +580,7 @@
           <div class="reviews-slider__item">
 
             <figure class="quote">
-              <img class="quote__portrait" src="images/reviewer.jpg" alt="">
+              <img class="quote__portrait" src="images/reviewer.jpg" alt="Портрет рецензента">
 
               <div class="quote__content">
 
@@ -617,13 +619,16 @@
 
             <ul class="app__list">
               <li class="app__item">
-                <a class="app__link" href="#">
-                  <img src="images/icons/appstore.svg" alt="">
+                <a class="app__link" href="#" aria-label="Установить приложение в ап стор">
+                  <img src="images/icons/appstore.svg" alt="Скачать в AppStore">
+
+                  <!-- только SVG формат даёт нормальное качество -->
+
                 </a>
               </li>
               <li class="app__item">
-                <a class="app__link" href="#">
-                  <img src="images/icons/googleplay.svg" alt="">
+                <a class="app__link" href="#" aria-label="Установить приложение в гугл плей">
+                  <img src="images/icons/googleplay.svg" alt="Скачать в GooglePlay">
                 </a>
               </li>
             </ul>
@@ -633,11 +638,7 @@
       </div>
     </section>
 
-
-
   </main>
-
-
 
 
   <footer class="footer">
@@ -805,7 +806,6 @@
         © 2022 Simple Food
       </p>
     </div>
-
   </footer>
   </div>
 
