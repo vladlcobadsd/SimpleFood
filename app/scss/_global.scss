@@ -16,33 +16,297 @@ body {
   flex-grow: 1;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-section  {
-  padding-bottom: 120px;
-}
-
-a {
-  color: $dark;
-  transition: color 0.2s ease;
-}
-
-
-a:focus {
-  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-  border-radius: 5px;
-  
-  &:active {
-    text-shadow: 2px 2px 5px 0 rgba(49, 53, 43, 0.50);
-  }
+.section {
+  padding: 63px 0;
 }
 
 .title {
   font-size: 36px;
   color: $darkBlue;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+.link {
+  border-radius: 5px;
+  transition: text-decoration 0.2s ease, color 0.2s ease;
+}
+
+.link:focus {
+  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+}
+
+.link:hover {
+  color: $orange;
+}
+
+.link:active {
+  text-shadow: 2px 2px 5px 0px rgba(49, 53, 43, 0.50);
+}
+
+.button {
+  color: $white;
+  background-color: $orange;
+  box-shadow: transparent;
+  transition: box-shadow 0.2s ease, color 0.2s ease, background-color 0.2s ease, fill 0.2s ease;
+  border-radius: 6px;
+
+  &:hover {
+    color: $orange;
+    background-color: transparent;
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+
+    path {
+      fill: $orange;
+    }
+  }
+
+  &:focus {
+    color: $orange;
+    background-color: $lightOrange;
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+
+    path {
+      fill: $orange;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.logo {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  border-radius: 5px;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.logo:focus {
+  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+}
+
+.logo:active {
+  opacity: 0.5;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-network {
+  fill: $dark;
+}
+
+.icon-stopwatch {
+  fill: $orange;
+}
+
+.icon-delivery {
+  fill: #00AAFF;
+}
+
+.icon-shop {
+  fill: #FF2222;
+}
+
+.icon-arrow {
+  fill: $white;
+}
+
+.networks__link {
+  width: 40px;
+  height: 40px;
+  background-color: $lightGray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, fill 0.2s ease;
+
+  &:hover {
+    background-color: $orange;
+  }
+
+  &:hover .icon-network {
+    fill: $white;
+  }
+
+  &:focus {
+    background-color: $lightOrange;
+  }
+
+  &:focus .icon-network {
+    fill: $dark;
+  }
+
+  &:active {
+    background-color: $lightOrange;
+    border: none;
+
+    path {
+      fill: $orange;
+    }
+  }
+}
+
+.view-link {
+  padding: 5px 28px;
+  background-color: $orange;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: transparent;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+
+  svg {
+    transition: transform 0.2s ease;
+    fill: $white;
+    transform: translateX(0);
+  }
+
+  &:hover {
+    background-color: $white;
+    box-shadow: 0 0 0 2px $brown;
+
+    svg {
+      transform: translateX(20px);
+      fill: $orange;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $brown;
+    background-color: $lightOrange;
+
+    svg {
+      fill: $orange;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+
+    svg {
+      transform: translateX(0px);
+    }
+  }
+}
+
+.icon {
+  fill: $darkBlue;
+}
+
+.reviews-slider__arrow {
+  position: absolute;
+  bottom: -77px;
+  padding: 6px 10px 10px 4px;
+  box-shadow: 0 0 0 3px $gray;
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+  display: inline-block;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+
+  svg {
+    fill: $gray;
+    transition: fill 0.2s ease;
+  }
+
+  &--prev {
+    left: 40.7%;
+  }
+
+  &--next {
+    right: 40.7%;
+    transform: scaleX(-1);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 3px $brown;
+    background-color: $lightOrange;
+
+    svg {
+      fill: $brown;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px $orange;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.slick-dots {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -70px;
+}
+
+.slick-dots li+li {
+  margin-left: 15px;
+}
+
+.slick-dots {
+  button {
+    border: none;
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $gray;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $brown;
+    }
+
+    &:hover {
+      background-color: $lightOrange;
+      box-shadow: 0 0 0 2px $brown;
+    }
+
+    &:active {
+      background-color: $orange;
+      box-shadow: none;
+
+      svg {
+        fill: $orange;
+      }
+    }
+  }
+}
+
+.slick-dots li.slick-active button {
+  background-color: $orange;
 }

@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik';
   font-weight: 300;
   font-style: normal;
   src: local('Rubik'),
@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik';
   font-weight: 400;
   font-style: normal;
   src: local('Rubik'),
@@ -19,7 +19,17 @@
 }
 
 @font-face {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik';
+  font-weight: 400;
+  font-style: italic;
+  src: local('Rubik'),
+      url('../fonts/Rubik-Italic.woff2') format('woff2'),
+      url('../fonts/Rubik-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
   font-weight: 500;
   font-style: normal;
   src: local('Rubik'),
