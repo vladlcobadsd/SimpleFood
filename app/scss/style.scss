@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'vars';
 @import 'libs';
+@import 'mixin';
 @import 'global';
 
 .header {
@@ -63,8 +64,6 @@
     background-color: transparent;
     transition: background-color 0.2s ease, stroke 0.2s ease, box-shadow 0.2s ease;
     border-radius: 5px;
-    cursor: pointer;
-    outline: transparent;
 
     &:not(:last-child) {
       margin-right: 10px;
@@ -73,11 +72,7 @@
     &:hover {
       background-color: $orange;
 
-      path {
-        stroke: $white;
-      }
-
-      ellipse {
+      svg {
         stroke: $white;
       }
     }
@@ -91,11 +86,7 @@
       background-color: $lightOrange;
       box-shadow: 0 0 0 2px $brown;
 
-      path {
-        stroke: $dark;
-      }
-
-      ellipse {
+      svg {
         stroke: $dark;
       }
     }
@@ -103,6 +94,11 @@
     &:active {
       background-color: $lightOrange;
       box-shadow: transparent;
+    }
+
+    &-img {
+      fill: none;
+      stroke: $darkBlue;
     }
   }
 
@@ -113,7 +109,7 @@
     top: 6px;
     left: 25px;
     padding: 0 5px 0 4px;
-    border-radius: 50%;
+    border-radius: 300px;
     background-color: $orange;
     line-height: 1.5;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -139,6 +135,7 @@
   &__text {
     margin-bottom: 20px;
     line-height: 1.5;
+    @include line-clamp(3);
   }
 
   &__button {
@@ -171,8 +168,10 @@
   }
 
   &__image {
+    background-image: url('../images/scooterguy.png');
     @extend %background;
-    width: 560px;
+    max-width: 560px;
+    width: 100%;
     height: 660px;
   }
 }
@@ -189,6 +188,12 @@
   &__nav {
     display: flex;
     margin-bottom: 45px;
+    overflow-x: auto;
+    padding: 2px 2px;
+
+    &-item:not(:last-child) {
+      margin-right: 20px;
+    }
 
     span {
       margin-left: 10px;
@@ -202,6 +207,7 @@
     padding: 13px 32px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 
     &:not(:last-child) {
       margin-right: 20px;
@@ -266,32 +272,6 @@
     }
   }
 
-  &__img {
-    margin-bottom: 10px;
-  }
-
-  &__subtitle {
-    font-size: 15px;
-    @extend %rubik-400;
-    margin-bottom: 10px;
-    min-height: 36px;
-  }
-
-  &__price {
-    font-size: 15px;
-    line-height: 1.4;
-    @extend %rubik-500;
-    margin-bottom: 10px;
-    color: $darkBlue;
-    margin-top: auto;
-  }
-
-  &__item-btn {
-    font-size: 14px;
-    padding: 7px 16px;
-    border-radius: 6px;
-  }
-
   &__link {
     text-decoration: underline $dark;
 
@@ -309,7 +289,8 @@
   }
 
   &__image {
-    width: 440px;
+    max-width: 440px;
+    width: 100%;
     height: 585px;
     @extend %background;
     margin-right: 120px;
@@ -328,6 +309,7 @@
     color: $dark;
     margin-bottom: 30px;
     line-height: 1.5;
+    @include line-clamp(3);
   }
 
   &__item {
@@ -345,60 +327,61 @@
     }
   }
 
-  &__button {
-    margin-top: 30px;
+  &__list {
+    margin-bottom: 37px;
+  }
+
+  &__link {
+    display: inline-block;
+    color: $white;
+    cursor: pointer;
+    border-radius: 6px;
     padding: 12px 32px;
     font-size: 18px;
+    background-color: $orange;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: $orange;
+      background-color: transparent;
+      box-shadow: 0 0 0 2px rgba($brown, 0.70);
+    }
+
+    &:focus {
+      color: $orange;
+      background-color: $lightOrange;
+      box-shadow: 0 0 0 2px rgba($brown, 0.70);
+    }
+
+    &:active {
+      box-shadow: none;
+      background-color: rgba($darkRed, 0.10);
+    }
   }
 }
 
 .restaurants {
 
-  &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   &__title {
+    text-align: center;
     margin: 0 auto 45px;
   }
 
-  &__image {
-    width: 370px;
-    height: 300px;
-  }
-
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
   }
 
   &__item {
     background-color: $white;
-    box-shadow: 0px 3px 3px 0px rgba(#{$black}, 0.10);
+    box-shadow: 0 3px 3px 0 rgba($black, 0.10);
     border-radius: 10px;
     transition: box-shadow 0.2s ease;
 
     &:hover {
-      box-shadow: 0px 3px 15px 0px rgba(#{$brown}, 0.50);
+      box-shadow: 0 3px 15px 0 rgba($brown, 0.50);
     }
-  }
-
-  &__content {
-    padding: 15px 20px 20px;
-  }
-
-  &__subtitle {
-    font-weight: 400;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  &__view {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 300;
   }
 
   &__info {
@@ -419,19 +402,12 @@
     margin-bottom: 45px;
   }
 
-  &__nav {
+  &__quote {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    gap: 40px;
   }
-}
-
-.quote {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
 
   &__portrait {
     border-radius: 50%;
@@ -444,46 +420,45 @@
     width: 100%;
     padding: 0 40px;
   }
-}
 
-.blockquote {
-  max-width: 570px;
-  line-height: 1.5;
-  @extend %rubik-400-italic;
-  position: relative;
-  
+  &__blockquote {
+    max-width: 570px;
+    line-height: 1.5;
+    @extend %rubik-400-italic;
+    position: relative;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 19px;
-    background-image: url('../images/sprite.svg#icon-quotes');
-    @extend %background;
-    filter: invert(95%) sepia(0%) saturate(1%) hue-rotate(168deg) brightness(82%) contrast(94%);
-  }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 19px;
+      background-image: url('../images/sprite.svg#icon-quotes');
+      @extend %background;
+      filter: invert(95%) sepia(0%) saturate(1%) hue-rotate(168deg) brightness(82%) contrast(94%);
+    }
 
-  &::before {
-    top: -2px;
-    left: -41px;
-  }
+    &::before {
+      top: -2px;
+      left: -41px;
+    }
 
-  &::after {
-    transform: scaleX(-1);
-    right: -40px;
-    bottom: 32px;
+    &::after {
+      transform: scaleX(-1);
+      right: -40px;
+      bottom: 32px;
+    }
   }
 
   &__text {
     margin-bottom: 30px;
-
+    @include line-clamp(5);
   }
-}
 
-.figcaption {
-  display: flex;
-  flex-direction: column;
+  &__figcaption {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__name {
     color: $orange;
@@ -513,8 +488,10 @@
   }
 
   &__image {
-    width: 570px;
+    max-width: 570px;
+    width: 100%;
     height: 380px;
+    @extend %background;
   }
 
   &__title {
@@ -525,6 +502,7 @@
   &__text {
     margin-bottom: 30px;
     line-height: 1.5;
+    @include line-clamp(3);
   }
 
   &__list {
@@ -541,13 +519,14 @@
 
 .footer {
   font-size: 18px;
-  padding-top: 60px;
+  padding-top: 55px;
   gap: 70px;
 
   &__logo {
     margin-bottom: 30px;
     display: block;
-    width: 200px;
+    max-width: 200px;
+    width: 100%;
   }
 }
 
@@ -567,13 +546,9 @@
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 30px;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 75px;
   }
-}
-
-.subscribe-form {
-  margin-bottom: 12px;
 }
 
 .footer-bottom {
@@ -584,7 +559,7 @@
 
   &__item {
     display: flex;
-    margin: 0 0 23px 7px;
+    margin: 0 0 23px 0;
   }
 
   &__link {
@@ -592,6 +567,8 @@
     align-items: center;
 
     svg {
+      fill: none;
+      stroke: $darkBlue;
       margin-right: 7px;
     }
   }
@@ -599,6 +576,7 @@
 
 .subscribe-form {
   width: 200px;
+  margin-bottom: 12px;
 
   &__input {
     font-size: 14px;
@@ -622,7 +600,7 @@
 
     &:focus {
       box-shadow: 0 0 0 2px $orange;
-      border: none;
+      border: 1px solid transparent;
     }
   }
 
@@ -633,6 +611,22 @@
     font-size: 14px;
     padding: 13px 38px;
     width: 100%;
+
+    svg {
+      fill: $white;
+    }
+
+    &:focus {
+      svg {
+        fill: $orange;
+      }
+    }
+
+    &:hover {
+      svg {
+        fill: $orange;
+      }
+    }
   }
 }
 

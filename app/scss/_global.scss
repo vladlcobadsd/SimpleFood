@@ -42,7 +42,7 @@ body {
 .title {
   font-size: 36px;
   color: $darkBlue;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .link {
@@ -65,7 +65,7 @@ body {
 .button {
   color: $white;
   background-color: $orange;
-  box-shadow: transparent;
+  box-shadow: 0 0 0 2px transparent;
   transition: box-shadow 0.2s ease, color 0.2s ease, background-color 0.2s ease, fill 0.2s ease;
   border-radius: 6px;
 
@@ -91,6 +91,7 @@ body {
 
   &:active {
     box-shadow: none;
+    background-color: rgba($darkRed, 0.10);
   }
 }
 
@@ -98,6 +99,10 @@ body {
   opacity: 1;
   transition: opacity 0.2s ease;
   border-radius: 5px;
+
+  &__img {
+    object-fit: none;
+  }
 }
 
 .logo:hover {
@@ -116,6 +121,71 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &__img {
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 15px;
+    @extend %rubik-400;
+    margin-bottom: 10px;
+    min-height: 36px;
+    @include line-clamp(2);
+  }
+
+  &__price {
+    font-size: 15px;
+    line-height: 1.4;
+    @extend %rubik-500;
+    margin-bottom: 10px;
+    color: $darkBlue;
+    margin-top: auto;
+    @include line-clamp(1);
+  }
+
+  &__btn {
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 6px;
+  }
+}
+
+.restaurant-card {
+  &__image {
+    max-width: 370px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__content {
+    padding: 15px 20px 20px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 20px;
+    @include line-clamp(1);
+  }
+
+  &__view {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    font-size: 18px;
+    background-image: url('../images/sprite.svg#icon-timer');
+    @extend %background;
+    background-size: 22px 22px;
+    background-position: left;
+    @include line-clamp(1);
+  }
 }
 
 .icon-network {
@@ -305,8 +375,22 @@ body {
       }
     }
   }
-  
+
   .slick-dots li.slick-active button {
+    background-color: $orange;
+  }
+}
+
+.slick-disabled {
+  box-shadow: 0 0 0 3px $orange;
+
+  svg {
+    fill: $orange;
+  }
+}
+
+.slick-active {
+  button {
     background-color: $orange;
   }
 }
