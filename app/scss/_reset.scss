@@ -61,7 +61,6 @@ button {
 img {
   display: block;
   max-width: 100%;
-  object-fit: cover;
 }
 
 input,
@@ -69,5 +68,9 @@ button,
 textarea,
 select {
   font:  inherit;
+}
+
+address {
+  font-style: normal;
 }
 
